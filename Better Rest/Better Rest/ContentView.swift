@@ -9,11 +9,16 @@
 
 import SwiftUI
 import CoreData
+import CoreML
 
 struct ContentView: View {
     @State private var sleepAmount = 8.0
     @State private var wakeUp = Date.now
     @State private var cupsOfCoffee = 1
+    
+    @State private var alertTitle = ""
+    @State private var alertMessage = ""
+    @State private var showingAlert = false
     
     var body: some View {
         NavigationView {
@@ -39,11 +44,34 @@ struct ContentView: View {
             .toolbar {
                 Button("Calculate", action: calculateBedtime)
             }
+            .alert(alertTitle, isPresented: $showingAlert) {
+                Button("OK") {}
+            } message: {
+                Text(alertMessage)
+            }
         }
     }
     
     func calculateBedtime() {
-        
+        do {
+            let config = MLModelConfiguration()
+            let model = try SleepCalculator(configuration: config)
+            
+            let components = Calendar.current.dateComponents([.hour, .minute], from: wakeUp)
+            let hourInSec = (components.hour ?? 0) * 60 * 60
+            let minuteInSec = (components.minute ?? 0) * 60
+            
+            let prediction = try model.prediction(wake: Double(hourInSec + minuteInSec), estimatedSleep: sleepAmount, coffee: Double(cupsOfCoffee))
+            
+            let sleepTime = wakeUp - prediction.actualSleep
+            
+            alertTitle = "Your ideal bedtime is..."
+            alertMessage = sleepTime.formatted(date: .omitted, time: .shortened)
+        } catch {
+            alertTitle = "Error"
+            alertMessage = "Problem calculating your bedtime"
+        }
+        showingAlert = true
     }
 }
 
