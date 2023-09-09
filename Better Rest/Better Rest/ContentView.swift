@@ -35,7 +35,15 @@ struct ContentView: View {
                 Spacer()
             }
             .padding(.horizontal)
+            .navigationTitle("Better Rest")
+            .toolbar {
+                Button("Calculate", action: calculateBedtime)
+            }
         }
+    }
+    
+    func calculateBedtime() {
+        
     }
 }
 

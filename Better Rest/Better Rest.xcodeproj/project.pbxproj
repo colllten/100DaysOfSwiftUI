@@ -13,6 +13,7 @@
 		D18A286E2AACEA3300462CEA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D18A286D2AACEA3300462CEA /* Preview Assets.xcassets */; };
 		D18A28702AACEA3300462CEA /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18A286F2AACEA3300462CEA /* Persistence.swift */; };
 		D18A28732AACEA3300462CEA /* Better_Rest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D18A28712AACEA3300462CEA /* Better_Rest.xcdatamodeld */; };
+		D18A287A2AACFDEB00462CEA /* SleepCalculator.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D18A28792AACFDEB00462CEA /* SleepCalculator.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		D18A286D2AACEA3300462CEA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D18A286F2AACEA3300462CEA /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		D18A28722AACEA3300462CEA /* Better_Rest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Better_Rest.xcdatamodel; sourceTree = "<group>"; };
+		D18A28792AACFDEB00462CEA /* SleepCalculator.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SleepCalculator.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				D18A28662AACEA3200462CEA /* Better_RestApp.swift */,
 				D18A28682AACEA3200462CEA /* ContentView.swift */,
 				D18A286A2AACEA3300462CEA /* Assets.xcassets */,
+				D18A28792AACFDEB00462CEA /* SleepCalculator.mlmodel */,
 				D18A286F2AACEA3300462CEA /* Persistence.swift */,
 				D18A28712AACEA3300462CEA /* Better_Rest.xcdatamodeld */,
 				D18A286C2AACEA3300462CEA /* Preview Content */,
@@ -145,6 +148,7 @@
 			files = (
 				D18A28702AACEA3300462CEA /* Persistence.swift in Sources */,
 				D18A28692AACEA3200462CEA /* ContentView.swift in Sources */,
+				D18A287A2AACFDEB00462CEA /* SleepCalculator.mlmodel in Sources */,
 				D18A28672AACEA3200462CEA /* Better_RestApp.swift in Sources */,
 				D18A28732AACEA3300462CEA /* Better_Rest.xcdatamodeld in Sources */,
 			);
