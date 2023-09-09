@@ -4,6 +4,8 @@
 //
 //  Created by Colten Glover on 9/9/23.
 //
+//  A project demonstrating Picker and CoreML
+//
 
 import SwiftUI
 import CoreData
