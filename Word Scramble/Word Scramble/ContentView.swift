@@ -16,6 +16,8 @@ struct ContentView: View {
     @State private var errorMessage = ""
     @State private var showingError = false
     
+    @State private var points = 0
+    
     var body: some View {
         NavigationView {
             List {
@@ -23,6 +25,7 @@ struct ContentView: View {
                     .keyboardType(.asciiCapable)
                     .textInputAutocapitalization(.never)
                     .onSubmit(addNewWord)
+                Text("Points: \(points)")
                 Section("Used Words") {
                     ForEach(usedWords, id: \.self) { word in
                         HStack {
@@ -39,6 +42,11 @@ struct ContentView: View {
             } message: {
                 Text(errorMessage)
             }
+            .toolbar {
+                Button("New Word") {
+                    startGame()
+                }
+            }
         }
     }
     
@@ -47,6 +55,16 @@ struct ContentView: View {
         
         //Exit if string is empty
         guard answer.count > 0 else { return }
+        
+        guard isLongEnough(word: answer) else {
+            wordError(title: "Word not long enough", message: "Make longer word")
+            return
+        }
+        
+        guard isDifferentWord(word: answer) else {
+            wordError(title: "Same word", message: "Be more original")
+            return
+        }
         
         guard isOriginal(word: answer) else {
             wordError(title: "Word already used", message: "Be more original")
@@ -66,11 +84,20 @@ struct ContentView: View {
         withAnimation {
             usedWords.insert(answer, at: 0)
         }
+        points += answer.count
         newWord = ""
     }
     
     func isOriginal(word: String) -> Bool {
         return !usedWords.contains(newWord)
+    }
+    
+    func isDifferentWord(word: String) -> Bool {
+        return word != rootWord
+    }
+    
+    func isLongEnough(word: String) -> Bool {
+        return word.count > 2
     }
     
     func isPossible(word: String) -> Bool {
@@ -103,6 +130,9 @@ struct ContentView: View {
             if let startWords = try? String(contentsOf: startWordsURL) {
                 let allWords = startWords.components(separatedBy: "\n")
                 rootWord = allWords.randomElement() ?? "silkworm"
+                newWord = ""
+                points = 0
+                usedWords.removeAll()
                 return
             }
         }
