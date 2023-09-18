@@ -8,20 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var animationAmount = 1.0
-    
-    var body: some View {
-        Button("Tap Me") {
-            animationAmount += 0.25
+    let letters = Array("Hello SwiftUI")
+        @State private var isShowing = false
+
+        var body: some View {
+            VStack {
+                Button("Tap Me") {
+                    withAnimation {
+                        isShowing.toggle()
+                    }
+                }
+
+                if isShowing {
+                    Rectangle()
+                        .fill(.red)
+                        .frame(width: 200, height: 200)
+                        .transition(.scale)
+                }
+            }
         }
-        .padding(50)
-        .background(.red)
-        .foregroundColor(.white)
-        .clipShape(Circle())
-        .scaleEffect(animationAmount)
-        .animation(.default, value: animationAmount)
-        .blur(radius: (animationAmount - 1) * 1.5)
-    }
 }
 
 struct ContentView_Previews: PreviewProvider {
