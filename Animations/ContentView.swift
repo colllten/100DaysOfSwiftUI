@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var animationAmount = 1.0
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button("Tap Me") {
+            animationAmount += 0.25
+        }
+        .padding(50)
+        .background(.red)
+        .foregroundColor(.white)
+        .clipShape(Circle())
+        .scaleEffect(animationAmount)
+        .animation(.default, value: animationAmount)
+        .blur(radius: (animationAmount - 1) * 1.5)
     }
 }
 
