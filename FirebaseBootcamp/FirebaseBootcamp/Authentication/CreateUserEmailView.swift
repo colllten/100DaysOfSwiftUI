@@ -1,14 +1,14 @@
 //
-//  ContentView.swift
+//  SignInEmailView.swift
 //  FirebaseBootcamp
 //
-//  Created by Colten Glover on 9/19/23.
+//  Created by Colten Glover on 9/20/23.
 //
 
 import SwiftUI
 import FirebaseAuth
 
-struct ContentView: View {
+struct CreateUserEmailView: View {
     @State private var email = ""
     @State private var password = ""
     @State private var confirmPassword = ""
@@ -49,9 +49,10 @@ struct ContentView: View {
         } message: {
             Text(errorMessage)
         }
+        .navigationTitle("Create Account")
     }
 }
 
 #Preview {
-    ContentView()
+    CreateUserEmailView()
 }
