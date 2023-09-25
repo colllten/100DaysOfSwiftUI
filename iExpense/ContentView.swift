@@ -7,33 +7,33 @@
 
 import SwiftUI
 
-class User: ObservableObject {
-    @Published var firstName = "Colten"
-    @Published var lastName = "Glover"
-}
-
-struct SecondView: View {
-    @Environment(\.dismiss) var dimiss
-    let name: String
-    var body: some View {
-        Button("Dimiss") {
-            dimiss()
-        }
-    }
-}
-
 struct ContentView: View {
-    @State private var showingSheet = false
+    @State private var numbers = [Int]()
+    @State private var currentNumber = 1
     
     var body: some View {
-        Form {
-            Button("Show Sheet") {
-                showingSheet.toggle()
+        NavigationView {
+            VStack {
+                List {
+                    ForEach(numbers, id: \.self) { num in
+                        Text("Row \(num)")
+                    }
+                    .onDelete(perform: removeRows)
+                }
+                
+                Button("Add Number") {
+                    numbers.append(currentNumber)
+                    currentNumber += 1
+                }
             }
-            .sheet(isPresented: $showingSheet, content: {
-                SecondView(name: "Colten")
-            })
+            .toolbar {
+                EditButton()
+            }
         }
+    }
+    
+    func removeRows(at offsets: IndexSet) {
+        numbers.remove(atOffsets: offsets)
     }
 }
 
