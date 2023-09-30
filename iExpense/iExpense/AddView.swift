@@ -33,6 +33,11 @@ struct AddView: View {
             }
             
             .navigationTitle("Add New Expense")
+            .toolbar(content: {
+                Button("Save") {
+                    expenses.items.append(ExpenseItem(name: name, type: type, amount: amount))
+                }
+            })
         }
     }
 }
