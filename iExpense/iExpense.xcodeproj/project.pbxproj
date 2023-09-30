@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D13B46E42AC8A15400A69C51 /* ExpenseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B46E32AC8A15400A69C51 /* ExpenseItem.swift */; };
+		D13B46E72AC8B2B500A69C51 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B46E62AC8B2B500A69C51 /* AddView.swift */; };
 		D14546D92AB8FE6A00BB01AB /* iExpenseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14546D82AB8FE6A00BB01AB /* iExpenseApp.swift */; };
 		D14546DD2AB8FE6A00BB01AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D14546DC2AB8FE6A00BB01AB /* Assets.xcassets */; };
 		D14546E02AB8FE6A00BB01AB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D14546DF2AB8FE6A00BB01AB /* Preview Assets.xcassets */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		D13B46E32AC8A15400A69C51 /* ExpenseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseItem.swift; sourceTree = "<group>"; };
+		D13B46E62AC8B2B500A69C51 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		D14546D52AB8FE6900BB01AB /* iExpense.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iExpense.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D14546D82AB8FE6A00BB01AB /* iExpenseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iExpenseApp.swift; sourceTree = "<group>"; };
 		D14546DC2AB8FE6A00BB01AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			children = (
 				D13B46E52AC8A15B00A69C51 /* Model */,
 				D14546EB2AB9042600BB01AB /* ContentView.swift */,
+				D13B46E62AC8B2B500A69C51 /* AddView.swift */,
 				D14546D82AB8FE6A00BB01AB /* iExpenseApp.swift */,
 				D14546DC2AB8FE6A00BB01AB /* Assets.xcassets */,
 				D14546E12AB8FE6A00BB01AB /* Persistence.swift */,
@@ -156,6 +159,7 @@
 			files = (
 				D14546E22AB8FE6A00BB01AB /* Persistence.swift in Sources */,
 				D14546E52AB8FE6A00BB01AB /* iExpense.xcdatamodeld in Sources */,
+				D13B46E72AC8B2B500A69C51 /* AddView.swift in Sources */,
 				D13B46E42AC8A15400A69C51 /* ExpenseItem.swift in Sources */,
 				D14546EC2AB9042600BB01AB /* ContentView.swift in Sources */,
 				D14546D92AB8FE6A00BB01AB /* iExpenseApp.swift in Sources */,
