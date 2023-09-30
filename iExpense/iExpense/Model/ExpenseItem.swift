@@ -12,3 +12,7 @@ struct ExpenseItem {
     let type: String
     let amount: Double
 }
+
+class Expenses: ObservableObject {
+    @Published var items = [ExpenseItem]()
+}

@@ -8,12 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var expenses = Expenses()
     
     var body: some View {
         NavigationView {
-            VStack {
-                
+            List {
+                ForEach(expenses.items, id: \.name) { item in
+                    Text(item.name)
+                }
+                .onDelete(perform: { indexSet in
+                    expenses.items.remove(atOffsets: indexSet)
+                })
             }
+            .toolbar(content: {
+                Button {
+                    expenses.items.append(ExpenseItem(name: "Test", type: "Person", amount: 5))
+                } label: {
+                    Image(systemName: "plus")
+                }
+            })
+            .navigationTitle("Expenses")
         }
     }
 }
