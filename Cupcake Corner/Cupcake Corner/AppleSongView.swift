@@ -21,11 +21,18 @@ struct AppleSongView: View {
     
     var body: some View {
         VStack {
-            Text(result.message)
-            
+            AsyncImage(url: URL(string: "https://hws.dev/img/logo.png")) { image in
+                image
+                    .resizable()
+                    .scaledToFit()
+                
+            } placeholder: {
+                ProgressView()
+            }
+            .frame(width: 200, height: 200)
         }
         .task {
-            await loadData()
+            //await loadData()
         }
     }
     
